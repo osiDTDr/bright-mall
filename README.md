@@ -20,35 +20,20 @@ dubbo自定义拦截器(按照优先级顺序)
 
 
 * 整体的功能如下图：![功能图](http://static.iocoder.cn/mall%20%E5%8A%9F%E8%83%BD%E5%9B%BE-min.png)
-    > 功能图，和实际后端模块拆分，并不是绝对对应。
-    * [功能列表 - H5 商城](https://gitee.com/zhijiantianya/onemall/blob/master/docs/guides/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8-H5%20%E5%95%86%E5%9F%8E.md)
-    * [功能列表 - 管理后台](https://gitee.com/zhijiantianya/onemall/blob/master/docs/guides/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8-%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0.md)
-
-
-* 我们迫切希望更多的参与进来，可以加入「交流群」，一起骚聊。
-    * [《Onemall 电商开源项目 —— 应用分层》](http://www.iocoder.cn/Onemall/Application-layer/?vip&onemall)
 
 ## H5 商城
 
 体验传送门：<http://h5.shop.iocoder.cn>
 
-*2M 带宽小水管，访问略微有点慢*
-
-![GIF 图-耐心等待](https://raw.githubusercontent.com/YunaiV/Blog/master/Mall/onemall-h5-min.gif)
-
 ## 管理后台
 
 体验传送门：<http://dashboard.shop.iocoder.cn>
-
-*2M 带宽小水管，访问略微有点慢*
-
-![GIF 图-耐心等待](https://raw.githubusercontent.com/YunaiV/Blog/master/Mall/onemall-admin-min.gif)
 
 ## 其它演示
 
 下面，我们会提供目前用到的中间件的管理平台。
 
-> 艿艿：考虑到大家可以看到更全的功能，所以一般提供 admin 账号。所以，大家素质使用哟。
+> 考虑到可以看到更全的功能，所以一般提供 admin 账号。
 
 **SkyWalking UI**
 
@@ -199,7 +184,3 @@ TODO 此处应有一个架构图的装逼 JPG 图。
 
 # 某种结尾
 
-目前成员
-
-* 小范
-* 芋艿
