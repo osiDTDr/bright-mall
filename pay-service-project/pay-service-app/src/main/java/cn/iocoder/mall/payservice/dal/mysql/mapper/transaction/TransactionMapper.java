@@ -2,6 +2,7 @@ package cn.iocoder.mall.payservice.dal.mysql.mapper.transaction;
 
 import cn.iocoder.mall.mybatis.core.query.QueryWrapperX;
 import cn.iocoder.mall.payservice.dal.mysql.dataobject.transaction.TransactionDO;
+import cn.iocoder.mall.payservice.service.transaction.bo.TransactionPageBO;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 
@@ -13,7 +14,7 @@ public interface TransactionMapper extends BaseMapper<TransactionDO> {
 
     default IPage<TransactionDO> selectPage(TransactionPageBO pageBO) {
         return selectPage(new Page<>(pageBO.getPageNo(), pageBO.getPageSize()),
-            new QueryWrapperX<TransactionDO>());
+                new QueryWrapperX<>());
     }
 
 }

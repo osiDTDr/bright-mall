@@ -7,6 +7,11 @@ import cn.hutool.system.SystemUtil;
  */
 public class OSUtils {
 
+    /**
+     * 取得当前主机的名称。
+     *
+     * @return 当前主机的名称。
+     */
     public static String getHostName() {
         return SystemUtil.getHostInfo().getName();
     }

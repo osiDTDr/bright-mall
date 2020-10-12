@@ -19,7 +19,7 @@ import java.util.List;
  */
 @Component
 @JobHandler(value = "payTransactionNotifyJob")
-public class PayNotifyJob extends IJobHandler {
+class PayNotifyJob extends IJobHandler {
 
     @Autowired
     private PayNotifyTaskMapper payTransactionNotifyTaskMapper;

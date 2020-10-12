@@ -13,6 +13,7 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 /**
  * 自定义的 Sentry 自动配置类
+ * Sentry 是一个开源的实时错误追踪系统，可以帮助开发者实时监控并修复异常问题
  *
  * @author Hccake 2020/8/6
  * @version 1.0

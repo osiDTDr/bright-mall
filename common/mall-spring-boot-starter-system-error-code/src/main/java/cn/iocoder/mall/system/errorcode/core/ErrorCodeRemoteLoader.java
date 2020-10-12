@@ -6,6 +6,7 @@ import cn.iocoder.common.framework.exception.util.ServiceExceptionUtil;
 import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.mall.systemservice.rpc.errorcode.ErrorCodeRpc;
 import cn.iocoder.mall.systemservice.rpc.errorcode.vo.ErrorCodeVO;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,7 +28,7 @@ public class ErrorCodeRemoteLoader {
      */
     private final String group;
 
-    @Reference(version = "${dubbo.consumer.ErrorCodeRpc.version}")
+    @DubboReference(version = "${dubbo.consumer.ErrorCodeRpc.version}")
     private ErrorCodeRpc errorCodeRpc;
 
     private Date maxUpdateTime;

@@ -1,38 +1,32 @@
 [toc]
-
-> 友情提示：近期在升级和优化该项目，建议先 Star 本项目。主要在做几个事情：
+todo: 
 > 
 > * 1、微服务技术选型以 Spring Cloud Alibaba 为中心。
 > * 2、修改项目分层，并合并部分服务，简化整体服务的复杂性。
 > * 3、将管理后台从 React 重构到 Vue 框架。
-> 
-> 交流群：[传送门](http://www.iocoder.cn/mall-user-group/?vip&gitee)
+> * 4. 增加 log 模块
+
+
+dubbo自定义拦截器(按照优先级顺序)
+1.DubboRouterTagWebInterceptor
+2.AccessLogInterceptor
+3.UserSecurityInterceptor
+
+用户权限认证选择的是bearer
 
 # 前言
 
 基于微服务的思想，构建在 B2C 电商场景下的项目实战。
 
-* 「Talk is cheap. Show me the code」（屁话少说，放码过来）
-    > 我们看过很多技术文章，却依然不知道微服务该咋整。
-
-* 这会是一个认真做的业务开源项目，目前 Java 代码 2w+ 行，不包括注释的情况下。
 
 * 整体的功能如下图：![功能图](http://static.iocoder.cn/mall%20%E5%8A%9F%E8%83%BD%E5%9B%BE-min.png)
     > 功能图，和实际后端模块拆分，并不是绝对对应。
     * [功能列表 - H5 商城](https://gitee.com/zhijiantianya/onemall/blob/master/docs/guides/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8-H5%20%E5%95%86%E5%9F%8E.md)
     * [功能列表 - 管理后台](https://gitee.com/zhijiantianya/onemall/blob/master/docs/guides/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8/%E5%8A%9F%E8%83%BD%E5%88%97%E8%A1%A8-%E7%AE%A1%E7%90%86%E5%90%8E%E5%8F%B0.md)
 
-* 交流群：[传送门](http://www.iocoder.cn/mall-user-group/?vip&gitee)
-    > 一起交流，Get 知识。
 
 * 我们迫切希望更多的参与进来，可以加入「交流群」，一起骚聊。
     * [《Onemall 电商开源项目 —— 应用分层》](http://www.iocoder.cn/Onemall/Application-layer/?vip&onemall)
-
-# 演示
-
-> 艿艿：目前的开发者，都是后端出身。所以，一帮没有审美自觉的人，撸出来的前端界面，可能是东半球倒数第二难看。
->
-> 迫切希望，有前端能力不错的小伙伴，加入我们，一起来完善「芋道商城」。
 
 ## H5 商城
 

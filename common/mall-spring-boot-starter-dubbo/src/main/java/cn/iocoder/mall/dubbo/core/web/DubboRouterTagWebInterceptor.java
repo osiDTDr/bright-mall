@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
+ * spring 拦截器。
  * Dubbo 路由标签的 Web 拦截器，将请求 Header 中的 {@link #HEADER_DUBBO_TAG} 设置到 {@link DubboRouterTagContextHolder} 中。
  *
  * @see DubboProviderRouterTagFilter

@@ -2,12 +2,12 @@ package cn.iocoder.mall.security.user.core.context;
 
 /**
  * {@link UserSecurityContext} Holder
- *
+ * <p>
  * 参考 spring security 的 ThreadLocalSecurityContextHolderStrategy 类，简单实现。
  */
 public class UserSecurityContextHolder {
 
-    private static final ThreadLocal<UserSecurityContext> SECURITY_CONTEXT = new ThreadLocal<UserSecurityContext>();
+    private static final ThreadLocal<UserSecurityContext> SECURITY_CONTEXT = new ThreadLocal<>();
 
     public static void setContext(UserSecurityContext context) {
         SECURITY_CONTEXT.set(context);

@@ -7,7 +7,7 @@ public class UserSecurityProperties {
 
     private static final String[] DEFAULT_IGNORE_PATHS = new String[]{
             // Swagger 相关
-            "/doc.html", "/swagger-resources",  "/swagger-resources/**", "/webjars/**",
+            "/doc.html", "/swagger-resources", "/swagger-resources/**", "/webjars/**",
             // Actuator 相关
     };
 

@@ -11,6 +11,7 @@ import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2AccessTokenRespDTO;
 import cn.iocoder.mall.web.core.util.CommonWebUtil;
 import cn.iocoder.security.annotations.RequiresAuthenticate;
 import cn.iocoder.security.annotations.RequiresPermissions;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -21,9 +22,12 @@ import javax.servlet.http.HttpServletResponse;
 import static cn.iocoder.common.framework.exception.enums.GlobalErrorCodeConstants.UNAUTHORIZED;
 import static cn.iocoder.mall.systemservice.enums.SystemErrorCodeConstants.OAUTH_USER_TYPE_ERROR;
 
+/**
+ * 用户权限认证拦截器适配器
+ */
 public class UserSecurityInterceptor extends HandlerInterceptorAdapter {
 
-    @Reference(version = "${dubbo.consumer.OAuth2Rpc.version}")
+    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}")
     private OAuth2Rpc oauth2Rpc;
 
     @Override
@@ -50,7 +54,7 @@ public class UserSecurityInterceptor extends HandlerInterceptorAdapter {
             // 设置到 Request 中
             CommonWebUtil.setUserId(request, userId);
             CommonWebUtil.setUserType(request, UserTypeEnum.USER.getValue());
-            // 设置到
+            // 设置到 UserSecurityContextHolder
             UserSecurityContext userSecurityContext = new UserSecurityContext().setUserId(userId);
             UserSecurityContextHolder.setContext(userSecurityContext);
         }

@@ -19,7 +19,7 @@ public interface CartItemMapper extends BaseMapper<CartItemDO> {
 
     default CartItemDO selectByUserIdAndSkuId(Integer userId, Integer skuId) {
         return selectOne(new QueryWrapper<CartItemDO>().eq("user_id", userId)
-            .eq("sku_id", skuId));
+                .eq("sku_id", skuId));
     }
 
     default List<CartItemDO> selectListByUserIdAndSkuIds(Integer userId, Collection<Integer> skuIds) {
@@ -27,10 +27,10 @@ public interface CartItemMapper extends BaseMapper<CartItemDO> {
                 .inIfPresent("sku_id", skuIds));
     }
 
-   default void updateByIds(@Param("ids") Set<Integer> ids, @Param("updateObject") CartItemDO updateObject) {
+    default void updateByIds(@Param("ids") Set<Integer> ids, @Param("updateObject") CartItemDO updateObject) {
         // TODO 芋艿：batch update ，在 mybatis plus 做拓展，这里先临时处理
-       ids.forEach(id -> updateById(updateObject.setId(id)));
-   }
+        ids.forEach(id -> updateById(updateObject.setId(id)));
+    }
 
     default Integer selectSumQuantityByUserId(Integer userId) {
         // SQL sum 查询
@@ -43,7 +43,7 @@ public interface CartItemMapper extends BaseMapper<CartItemDO> {
 
     default List<CartItemDO> selectList(CartItemListQueryBO queryBO) {
         return selectList(new QueryWrapperX<CartItemDO>().eq("user_id", queryBO.getUserId())
-            .eqIfPresent("selected", queryBO.getSelected()));
+                .eqIfPresent("selected", queryBO.getSelected()));
     }
 
 }

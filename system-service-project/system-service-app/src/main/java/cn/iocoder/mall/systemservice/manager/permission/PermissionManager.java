@@ -89,7 +89,7 @@ public class PermissionManager {
 
     /**
      * 校验管理员是否拥有指定权限。
-     *
+     * <p>
      * 如果没有，则抛出 {@link cn.iocoder.common.framework.exception.ServiceException} 异常
      *
      * @param checkDTO 校验权限 DTO

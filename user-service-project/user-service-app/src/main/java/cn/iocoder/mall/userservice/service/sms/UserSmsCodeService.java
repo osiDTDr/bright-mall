@@ -39,12 +39,12 @@ public class UserSmsCodeService {
 
     /**
      * 创建短信验证码，并返回它
-     *
+     * <p>
      * 注意，不包括发送逻辑
      *
      * @param mobile 手机号
-     * @param scene 发送场景
-     * @param ip IP
+     * @param scene  发送场景
+     * @param ip     IP
      * @return 短信验证码
      */
     public String createSmsCode(@Mobile String mobile, Integer scene, String ip) {
@@ -62,7 +62,7 @@ public class UserSmsCodeService {
         }
         // 创建验证码记录
         UserSmsCodeDO newMobileCodePO = new UserSmsCodeDO().setMobile(mobile)
-                .setCode("9999") // TODO 芋艿，随机 4 位验证码 or 6 位验证码
+                .setCode("9999") // TODO 随机 4 位验证码 or 6 位验证码
                 .setScene(scene)
                 .setTodayIndex(lastUserSmsCodeDO != null ? lastUserSmsCodeDO.getTodayIndex() : 1)
                 .setCreateIp(ip).setUsed(false);
@@ -77,9 +77,9 @@ public class UserSmsCodeService {
      * 如果错误，则抛出 {@link ServiceException} 异常
      *
      * @param mobile 手机号
-     * @param code 验证码
-     * @param scene 发送场景
-     * @param ip IP
+     * @param code   验证码
+     * @param scene  发送场景
+     * @param ip     IP
      */
     public void verifySmsCode(String mobile, String code, Integer scene, String ip) {
         // 校验验证码

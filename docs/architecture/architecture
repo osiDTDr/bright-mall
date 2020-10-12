@@ -1,0 +1,53 @@
+服务采用前后端分离的模式，后端采用spring boot + dubbo
+
+![binaryTree](E:\git-project\bright-mall\docs\image\architecture.png)
+
+图中默认上层依赖于下层，箭头关系表示可直接依赖，如：开放接口层可以依赖于Web层，也可以直接依赖于Service层，依此类推：
+
+* 开放接口层：可直接封装Service方法暴露成RPC接口；通过Web封装成http接口；进行网关安全控制、流量控制等。
+* 终端显示层：各个端的模板渲染并执行显示的层。当前主要是velocity渲染，JS渲染，JSP渲染，移动端展示等。
+* Web层：主要是对访问控制进行转发，各类基本参数校验，或者不复用的业务简单处理等。
+* Service层：相对具体的业务逻辑服务层。
+* Manager层：通用业务处理层，它有如下特征： - 1） 对第三方平台封装的层，预处理返回结果及转化异常信息； - 2） 对Service层通用能力的下沉，如缓存方案、中间件通用处理； - 3） 与DAO层交互，对多个DAO的组合复用。
+* DAO层：数据访问层，与底层MySQL、Oracle、Hbase等进行数据交互。
+* 外部接口或第三方平台：包括其它部门RPC开放接口，基础平台，其它公司的HTTP接口。
+
+分层领域模型规约：
+
+* DO（Data Object）：与数据库表结构一一对应，通过DAO层向上传输数据源对象。
+* DTO（Data Transfer Object）：数据传输对象，Service或Manager向外传输的对象。
+* BO（Business Object）：业务对象。由Service层输出的封装业务逻辑的对象。
+* AO（Application Object）：应用对象。在Web层与Service层之间抽象的复用对象模型，极为贴近展示层，复用度不高。
+* VO（View Object）：显示层对象，通常是Web向模板渲染引擎层传输的对象。
+* Query：数据查询对象，各层接收上层的查询请求。注意超过2个参数的查询封装，禁止使用Map类来传输。
+
+![binaryTree](E:\git-project\bright-mall\docs\image\model.png)
+* 按照 Controller、Service、DAO 分成三层，去掉 Manager 层。
+    * 大多数业务场景下，无需与第三方平台对接。
+    * 当然，如果需要和第三方对接，还是会封装成 Client ，例如说 Pay Client 和 第三方支付平台的对接。
+    
+* DAO 层
+    * 入参，使用 DO（Data Object）。
+    * 出参，使用 DO（Data Object）。
+
+* Service 层
+    * 入参，使用 DTO（Data Transfer Object）。
+        * 需要加上 Bean Validation 注解，从而校验参数。
+        * 需要加上 Swagger API 注解，因为后续 Controller 很大可能性会使用到它，从而生成 API 文档。更细的原因，我们在 Controller 层一起讲。
+        * 示例：AdminAddDTO 和 AdminUpdateDTO 。
+    * 出参，使用 BO（Business Object）。
+        * 本来考虑使用 DTO ，考虑到区分，所以使用了 BO 。
+        * 需要加上 Swagger API 注解，原因同 DTO 。
+        * 示例：AdminBO 。    
+        
+* Controller 层
+    * 入参，使用 DTO（Data Transfer Object）。
+        * 因为前后端分离之后，Controller 大多数情况下，基本是将 Service 进行封装，提供 API 接口。所以大多数情况，Service DTO 可以重用，所以就默许使用 Service DTO 。😈 当然，这块有不同意见的胖友，可以一起来讨论下，我也挺纠结的。
+        * 当然，如果 Service DTO 不够用的情况下，可以自己在创建下 Controller DTO 。
+        * 本来想 Controller 单独在取个 XXO 的名字，结果想了半天没想出来，就继续沿用 Service DTO 了。
+        * 所以，因为是这样的设定，我们就要求 Service DTO 上，增加 Swagger API 注解。
+    * 出参，使用 BO（Business Object）。
+        * 原因，也是同 Controller 入参。
+        * 当然，如果 Service BO 不够用的情况下，可以自己在创建下 Controller VO 。 
+        
+               

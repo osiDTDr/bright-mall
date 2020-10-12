@@ -18,6 +18,10 @@ import java.lang.reflect.Type;
 import static cn.iocoder.common.framework.exception.enums.GlobalErrorCodeConstants.BAD_REQUEST;
 import static cn.iocoder.common.framework.exception.enums.GlobalErrorCodeConstants.INTERNAL_SERVER_ERROR;
 
+/**
+ * dubbo filter
+ * dubbo 异常处理
+ */
 @Activate(group = CommonConstants.PROVIDER) // TODO 优化点：设置下顺序
 public class DubboProviderExceptionFilter implements Filter, Filter.Listener {
 
@@ -37,9 +41,9 @@ public class DubboProviderExceptionFilter implements Filter, Filter.Listener {
                 // 1.1 参数校验异常
                 if (exception instanceof ConstraintViolationException) {
                     exception = this.constraintViolationExceptionHandler((ConstraintViolationException) exception);
-                // 1. ServiceException 业务异常，因为不会有序列化问题，所以无需处理
+                    // 1. ServiceException 业务异常，因为不会有序列化问题，所以无需处理
                 } else if (exception instanceof ServiceException) {
-                // 1.3 其它异常，转换成 GlobalException 全局异常，避免可能存在的反序列化问题
+                    // 1.3 其它异常，转换成 GlobalException 全局异常，避免可能存在的反序列化问题
                 } else {
                     exception = this.defaultExceptionHandler(exception, invocation);
                     assert exception != null;
@@ -49,7 +53,7 @@ public class DubboProviderExceptionFilter implements Filter, Filter.Listener {
                 if (isReturnCommonResult(invocation) && exception instanceof ServiceException) {
                     appResponse.setException(null); // 一定要清空异常
                     appResponse.setValue(CommonResult.error((ServiceException) exception));
-                // 2.2 如果是 GlobalException 全局异常，则直接抛出
+                    // 2.2 如果是 GlobalException 全局异常，则直接抛出
                 } else {
                     // TODO 优化点：尝试修改成 RpcException
                     appResponse.setException(exception);

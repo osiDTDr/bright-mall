@@ -16,7 +16,7 @@ public class ProductMQProducer {
     private RocketMQTemplate rocketMQTemplate;
 
     public void sendProductUpdateMessage(Integer id) {
-        // TODO 芋艿：后续优化下，考虑下一致性
+        // TODO 后续优化下，考虑下一致性
         try {
             SendResult sendResult = rocketMQTemplate.syncSend(ProductUpdateMessage.TOPIC, new ProductUpdateMessage().setId(id));
             if (!SendStatus.SEND_OK.equals(sendResult.getSendStatus())) {

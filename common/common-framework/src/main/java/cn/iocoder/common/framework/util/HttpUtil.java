@@ -118,7 +118,7 @@ public class HttpUtil {
      * for an application deployed to <code>/mayapp</code> (the application's context path), this method would return
      * <p/>
      * <code>/my/url.jsp</code>.
-     *
+     * <p>
      * 该方法，是从 Shiro 源码中，扣出来。add by 芋艿
      *
      * @param request current HTTP request
