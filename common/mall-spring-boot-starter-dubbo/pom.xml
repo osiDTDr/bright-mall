@@ -27,10 +27,10 @@
 
         <!-- RPC 相关 -->
         <!-- TODO 优化点：Spring Cloud Alibaba Dubbo 的示例 -->
-<!--        <dependency>-->
-<!--            <groupId>com.alibaba.cloud</groupId>-->
-<!--            <artifactId>spring-cloud-starter-dubbo</artifactId>-->
-<!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-dubbo</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.apache.dubbo</groupId>
