@@ -5,7 +5,7 @@ import cn.iocoder.mall.systemservice.manager.datadict.DataDictManager;
 import cn.iocoder.mall.systemservice.rpc.datadict.dto.DataDictCreateDTO;
 import cn.iocoder.mall.systemservice.rpc.datadict.dto.DataDictUpdateDTO;
 import cn.iocoder.mall.systemservice.rpc.datadict.vo.DataDictVO;
-import org.apache.dubbo.config.annotation.Service;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 /**
 * 数据字典 Rpc 实现类
 */
-@Service(version = "${dubbo.provider.DataDictRpc.version}")
+@DubboService(version = "${dubbo.provider.DataDictRpc.version}")
 public class DataDictRpcImpl implements DataDictRpc {
 
     @Autowired

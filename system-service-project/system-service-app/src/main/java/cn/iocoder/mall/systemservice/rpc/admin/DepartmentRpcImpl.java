@@ -5,6 +5,7 @@ import cn.iocoder.mall.systemservice.manager.admin.DepartmentManager;
 import cn.iocoder.mall.systemservice.rpc.admin.dto.DepartmentCreateDTO;
 import cn.iocoder.mall.systemservice.rpc.admin.dto.DepartmentUpdateDTO;
 import cn.iocoder.mall.systemservice.rpc.admin.vo.DepartmentVO;
+import org.apache.dubbo.config.annotation.DubboService;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,7 +17,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 /**
 * 部门 Rpc 实现类
 */
-@Service(version = "${dubbo.provider.DepartmentRpc.version}")
+@DubboService(version = "${dubbo.provider.DepartmentRpc.version}")
 public class DepartmentRpcImpl implements DepartmentRpc {
 
     @Autowired

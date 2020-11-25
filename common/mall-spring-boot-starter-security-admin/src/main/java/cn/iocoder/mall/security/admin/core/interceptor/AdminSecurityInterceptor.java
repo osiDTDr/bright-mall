@@ -15,6 +15,7 @@ import cn.iocoder.mall.systemservice.rpc.permission.dto.PermissionCheckDTO;
 import cn.iocoder.mall.web.core.util.CommonWebUtil;
 import cn.iocoder.security.annotations.RequiresNone;
 import cn.iocoder.security.annotations.RequiresPermissions;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -28,9 +29,9 @@ import static cn.iocoder.mall.systemservice.enums.SystemErrorCodeConstants.OAUTH
 
 public class AdminSecurityInterceptor extends HandlerInterceptorAdapter {
 
-    @Reference(version = "${dubbo.consumer.OAuth2Rpc.version}")
+    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}")
     private OAuth2Rpc oauth2Rpc;
-    @Reference(version = "${dubbo.consumer.PermissionRpc.version}")
+    @DubboReference(version = "${dubbo.consumer.PermissionRpc.version}")
     private PermissionRpc permissionRpc;
 
     @Override
