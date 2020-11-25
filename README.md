@@ -5,6 +5,7 @@ todo:
 > * 2、修改项目分层，并合并部分服务，简化整体服务的复杂性。
 > * 3、将管理后台从 React 重构到 Vue 框架。
 > * 4. 增加 log 模块
+> * 5. 推荐模块 (https://blog.csdn.net/csdnnews/article/details/108970879)
 
 
 dubbo自定义拦截器(按照优先级顺序)
