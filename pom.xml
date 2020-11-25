@@ -29,6 +29,7 @@
         <module>promotion-service-project</module>
         <module>search-service-project</module>
         <module>order-service-project</module>
+        <module>mall-gateway</module>
     </modules>
     <packaging>pom</packaging>
 
