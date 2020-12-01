@@ -12,4 +12,4 @@ dubbo:
   # Dubbo 注册中心
   registry:
     #    address: spring-cloud://localhost:8848 # 指定 Dubbo 服务注册中心的地址
-    address: nacos://localhost:8848?namespace=dev # 指定 Dubbo 服务注册中心的地址
+    address: nacos://localhost:8848 # 指定 Dubbo 服务注册中心的地址

@@ -10,7 +10,7 @@ import cn.iocoder.mall.managementweb.convert.systemlog.SystemExceptionLogConvert
 import cn.iocoder.mall.systemservice.rpc.admin.AdminRpc;
 import cn.iocoder.mall.systemservice.rpc.admin.vo.AdminVO;
 import cn.iocoder.mall.systemservice.rpc.systemlog.SystemExceptionLogRpc;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,9 +19,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class SystemExceptionLogManager {
 
-    @Reference(version = "${dubbo.consumer.SystemExceptionLogRpc.version}")
+    @DubboReference(version = "${dubbo.consumer.SystemExceptionLogRpc.version}")
     private SystemExceptionLogRpc systemExceptionLogRpc;
-    @Reference(version = "${dubbo.consumer.AdminRpc.version}")
+    @DubboReference(version = "${dubbo.consumer.AdminRpc.version}")
     private AdminRpc adminRpc;
 
     /**

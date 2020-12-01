@@ -12,7 +12,7 @@ import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemExceptionLogCreateD
 import cn.iocoder.mall.web.core.util.CommonWebUtil;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.dubbo.config.annotation.Reference;
+import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,7 +34,8 @@ import javax.validation.ConstraintViolationException;
 import javax.validation.ValidationException;
 import java.util.Date;
 
-import static cn.iocoder.common.framework.exception.enums.GlobalErrorCodeConstants.*;
+import static cn.iocoder.common.framework.exception.enums.GlobalErrorCodeConstants.BAD_REQUEST;
+import static cn.iocoder.common.framework.exception.enums.GlobalErrorCodeConstants.INTERNAL_SERVER_ERROR;
 
 /**
  * 全局异常处理器，将 Exception 翻译成 CommonResult + 对应的异常编号
@@ -55,7 +56,7 @@ public class GlobalExceptionHandler {
     private String applicationName;
 
     // TODO 目前存在一个问题，如果未引入 system-rpc-api 依赖，GlobalExceptionHandler 会报类不存在。未来封装出 Repository 解决该问题
-    @Reference(version = "${dubbo.consumer.SystemExceptionLogRpc.version}")
+    @DubboReference(version = "${dubbo.consumer.SystemExceptionLogRpc.version}")
     private SystemExceptionLogRpc systemExceptionLogRpc;
 
     /**
