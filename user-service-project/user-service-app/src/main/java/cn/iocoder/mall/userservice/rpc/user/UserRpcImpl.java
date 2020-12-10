@@ -7,14 +7,15 @@ import cn.iocoder.mall.userservice.rpc.user.dto.UserCreateReqDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserPageReqDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserRespDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserUpdateReqDTO;
-import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-@Service(version = "${dubbo.provider.UserRpc.version}", validation = "false")
+//@Service(version = "${dubbo.provider.UserRpc.version}", validation = "false")
+@Service
 public class UserRpcImpl implements UserRpc {
 
     @Autowired

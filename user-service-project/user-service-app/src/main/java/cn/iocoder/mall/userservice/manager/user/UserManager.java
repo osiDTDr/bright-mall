@@ -13,7 +13,6 @@ import cn.iocoder.mall.userservice.rpc.user.dto.UserRespDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserUpdateReqDTO;
 import cn.iocoder.mall.userservice.service.user.UserService;
 import cn.iocoder.mall.userservice.service.user.bo.UserBO;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +24,8 @@ public class UserManager {
     @Autowired
     private UserService userService;
 
-    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}")
+//    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}")
+    @Autowired
     private OAuth2Rpc oauth2Rpc;
 
     public UserRespDTO createUserIfAbsent(UserCreateReqDTO createDTO) {

@@ -8,15 +8,16 @@ import cn.iocoder.mall.systemservice.rpc.errorcode.dto.ErrorCodeCreateDTO;
 import cn.iocoder.mall.systemservice.rpc.errorcode.dto.ErrorCodePageDTO;
 import cn.iocoder.mall.systemservice.rpc.errorcode.dto.ErrorCodeUpdateDTO;
 import cn.iocoder.mall.systemservice.rpc.errorcode.vo.ErrorCodeVO;
-import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-@Service(version = "${dubbo.provider.ErrorCodeRpc.version}")
+//@Service(version = "${dubbo.provider.ErrorCodeRpc.version}")
+@Service
 public class ErrorCodeRpcImpl implements ErrorCodeRpc {
 
     @Autowired

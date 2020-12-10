@@ -14,17 +14,20 @@ import cn.iocoder.mall.userweb.controller.passport.vo.PassportAccessTokenRespVO;
 import cn.iocoder.mall.userweb.controller.passport.vo.PassportLoginBySmsReqVO;
 import cn.iocoder.mall.userweb.controller.passport.vo.UserPassportSendSmsRespVO;
 import cn.iocoder.mall.userweb.convert.passport.PassportConvert;
-import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class PassportManager {
 
-    @DubboReference(version = "${dubbo.consumer.UserSmsCodeRpc.version}", validation = "false")
+//    @DubboReference(version = "${dubbo.consumer.UserSmsCodeRpc.version}", validation = "false")
+    @Autowired
     private UserSmsCodeRpc userSmsCodeRpc;
-    @DubboReference(version = "${dubbo.consumer.UserRpc.version}", validation = "false")
+//    @DubboReference(version = "${dubbo.consumer.UserRpc.version}", validation = "false")
+    @Autowired
     private UserRpc userRpc;
-    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}", validation = "false")
+//    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}", validation = "false")
+    @Autowired
     private OAuth2Rpc oauth2Rpc;
 
     public PassportAccessTokenRespVO loginBySms(PassportLoginBySmsReqVO loginBySmsDTO, String ip) {

@@ -4,12 +4,15 @@ import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressCreateReqDTO;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressRespDTO;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressUpdateReqDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 /**
  * 用户收件地址 Rpc 接口
  */
+@FeignClient("user-service")
 public interface UserAddressRpc {
 
     /**
@@ -18,6 +21,7 @@ public interface UserAddressRpc {
      * @param createDTO 创建用户收件地址 DTO
      * @return 用户收件地址编号
      */
+    @PostMapping("/createUserAddress")
     CommonResult<Integer> createUserAddress(UserAddressCreateReqDTO createDTO);
 
     /**
@@ -25,6 +29,7 @@ public interface UserAddressRpc {
      *
      * @param updateDTO 更新用户收件地址 DTO
      */
+    @PutMapping("/updateUserAddress")
     CommonResult<Boolean> updateUserAddress(UserAddressUpdateReqDTO updateDTO);
 
     /**
@@ -32,6 +37,7 @@ public interface UserAddressRpc {
      *
      * @param userAddressId 用户收件地址编号
      */
+    @DeleteMapping("/deleteUserAddress")
     CommonResult<Boolean> deleteUserAddress(Integer userAddressId);
 
     /**
@@ -40,6 +46,7 @@ public interface UserAddressRpc {
      * @param userAddressId 用户收件地址编号
      * @return 用户收件地址
      */
+    @GetMapping("/getUserAddress")
     CommonResult<UserAddressRespDTO> getUserAddress(Integer userAddressId);
 
     /**
@@ -48,6 +55,7 @@ public interface UserAddressRpc {
      * @param userAddressIds 用户收件地址编号列表
      * @return 用户收件地址列表
      */
+    @PostMapping("/listUserAddresses")
     CommonResult<List<UserAddressRespDTO>> listUserAddresses(List<Integer> userAddressIds);
 
     /**
@@ -57,6 +65,7 @@ public interface UserAddressRpc {
      * @param type   地址类型
      * @return 收件地址列表
      */
-    CommonResult<List<UserAddressRespDTO>> listUserAddresses(Integer userId, Integer type);
+    @GetMapping("/listUserAddresses/{userId}/{type}")
+    CommonResult<List<UserAddressRespDTO>> listUserAddresses(@PathVariable Integer userId,@PathVariable Integer type);
 
 }

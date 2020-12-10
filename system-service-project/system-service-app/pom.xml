@@ -11,11 +11,20 @@
 
     <artifactId>system-service-app</artifactId>
     <dependencies>
-        <!-- RPC 相关 -->
         <dependency>
-            <groupId>cn.iocoder.mall</groupId>
-            <artifactId>mall-spring-boot-starter-dubbo</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!-- RPC 相关 -->
+<!--        <dependency>-->
+<!--            <groupId>cn.iocoder.mall</groupId>-->
+<!--            <artifactId>mall-spring-boot-starter-dubbo</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <!-- 系统服务 -->
@@ -35,10 +44,10 @@
         </dependency>
 
         <!-- Registry 和 Config 相关 -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.alibaba.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+<!--        </dependency>-->
 
         <!-- DB 相关 -->
         <dependency>

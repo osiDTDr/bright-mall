@@ -11,6 +11,7 @@ import cn.iocoder.mall.userweb.controller.address.vo.UserAddressRespVO;
 import cn.iocoder.mall.userweb.controller.address.vo.UserAddressUpdateReqVO;
 import cn.iocoder.mall.userweb.convert.address.UserAddressConvert;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +24,8 @@ import static cn.iocoder.common.framework.exception.enums.GlobalErrorCodeConstan
 @Service
 public class UserAddressManager {
 
-    @DubboReference(version = "${dubbo.consumer.UserAddressRpc.version}")
+//    @DubboReference(version = "${dubbo.consumer.UserAddressRpc.version}")
+    @Autowired
     private UserAddressRpc userAddressRpc;
 
     /**

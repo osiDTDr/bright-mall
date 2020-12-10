@@ -17,6 +17,7 @@ public class UserSmsCodeManager {
         String smsCode = userSmsCodeService.createSmsCode(sendSmsCodeDTO.getMobile(),
                 sendSmsCodeDTO.getScene(), sendSmsCodeDTO.getIp());
         // TODO 调用发送验证码
+        System.out.println("smsCode:" + smsCode);
     }
 
     public void verifySmsCode(UserVerifySmsCodeReqDTO verifySmsCodeDTO) {

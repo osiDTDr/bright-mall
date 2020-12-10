@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-@Service(version = "${dubbo.provider.OAuth2Rpc.version}")
+//@Service(version = "${dubbo.provider.OAuth2Rpc.version}")
 public class OAuth2RpcImpl implements OAuth2Rpc {
 
     @Autowired

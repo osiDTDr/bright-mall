@@ -10,6 +10,7 @@ import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.Reference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -28,7 +29,8 @@ public class ErrorCodeRemoteLoader {
      */
     private final String group;
 
-    @DubboReference(version = "${dubbo.consumer.ErrorCodeRpc.version}")
+//    @DubboReference(version = "${dubbo.consumer.ErrorCodeRpc.version}")
+    @Autowired
     private ErrorCodeRpc errorCodeRpc;
 
     private Date maxUpdateTime;

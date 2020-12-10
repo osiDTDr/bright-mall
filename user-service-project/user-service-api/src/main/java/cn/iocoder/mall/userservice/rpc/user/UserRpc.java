@@ -6,9 +6,14 @@ import cn.iocoder.mall.userservice.rpc.user.dto.UserCreateReqDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserPageReqDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserRespDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserUpdateReqDTO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import java.util.List;
 
+@FeignClient("user-service")
 public interface UserRpc {
 
     /**
@@ -17,6 +22,7 @@ public interface UserRpc {
      * @param userId 用户编号
      * @return 用户
      */
+    @GetMapping("/getUser")
     CommonResult<UserRespDTO> getUser(Integer userId);
 
     /**
@@ -26,6 +32,7 @@ public interface UserRpc {
      * @param createDTO 创建用户 DTO
      * @return 用户信息
      */
+    @PostMapping("/createUserIfAbsent")
     CommonResult<UserRespDTO> createUserIfAbsent(UserCreateReqDTO createDTO);
 
     /**
@@ -33,6 +40,7 @@ public interface UserRpc {
      *
      * @param updateDTO 更新用户 DTO
      */
+    @PutMapping("/updateUser")
     CommonResult<Boolean> updateUser(UserUpdateReqDTO updateDTO);
 
     /**
@@ -41,6 +49,7 @@ public interface UserRpc {
      * @param userIds 用户编号列表
      * @return 用户列表
      */
+    @PostMapping("/listUsers")
     CommonResult<List<UserRespDTO>> listUsers(List<Integer> userIds);
 
     /**
@@ -49,6 +58,7 @@ public interface UserRpc {
      * @param pageDTO 用户分页查询
      * @return 用户分页结果
      */
+    @PostMapping("/pageUser")
     CommonResult<PageResult<UserRespDTO>> pageUser(UserPageReqDTO pageDTO);
 
 }
