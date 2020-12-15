@@ -10,9 +10,9 @@ import cn.iocoder.mall.userservice.enums.sms.UserSmsSceneEnum;
 import cn.iocoder.mall.userservice.rpc.sms.UserSmsCodeRpc;
 import cn.iocoder.mall.userservice.rpc.user.UserRpc;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserRespDTO;
-import cn.iocoder.mall.userweb.controller.passport.vo.PassportAccessTokenRespVO;
-import cn.iocoder.mall.userweb.controller.passport.vo.PassportLoginBySmsReqVO;
-import cn.iocoder.mall.userweb.controller.passport.vo.UserPassportSendSmsRespVO;
+import cn.iocoder.mall.userweb.controller.pub.passport.vo.PassportAccessTokenRespVO;
+import cn.iocoder.mall.userweb.controller.pub.passport.vo.PassportLoginBySmsReqVO;
+import cn.iocoder.mall.userweb.controller.pub.passport.vo.UserPassportSendSmsRespVO;
 import cn.iocoder.mall.userweb.convert.passport.PassportConvert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +23,9 @@ public class PassportManager {
 //    @DubboReference(version = "${dubbo.consumer.UserSmsCodeRpc.version}", validation = "false")
     @Autowired
     private UserSmsCodeRpc userSmsCodeRpc;
+
+//    @Autowired
+//    private UserApiService userApiService;
 //    @DubboReference(version = "${dubbo.consumer.UserRpc.version}", validation = "false")
     @Autowired
     private UserRpc userRpc;

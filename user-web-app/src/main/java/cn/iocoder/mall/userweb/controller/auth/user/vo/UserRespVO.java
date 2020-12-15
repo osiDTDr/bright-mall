@@ -1,4 +1,4 @@
-package cn.iocoder.mall.userweb.controller.user.vo;
+package cn.iocoder.mall.userweb.controller.auth.user.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

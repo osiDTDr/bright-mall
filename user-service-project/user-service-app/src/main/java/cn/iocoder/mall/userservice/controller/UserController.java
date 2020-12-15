@@ -18,13 +18,13 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
  * @since 2020/12/10-14:05
  */
 @Slf4j
-@RestController
-@RequestMapping("/user")
+//@RestController
+//@RequestMapping("/user")
 public class UserController {
     @Autowired
     private UserSmsCodeRpc userSmsCodeRpc;
 
-    @PostMapping("/sendSmsCode")
+//    @PostMapping("/sendSmsCode")
     public CommonResult<Boolean> sendSmsCode(@RequestBody UserSendSmsCodeReqDTO sendSmsCodeDTO){
         System.out.println("开始发送 验证码了");
         userSmsCodeRpc.sendSmsCode(sendSmsCodeDTO);

@@ -6,11 +6,10 @@ import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.mall.userservice.enums.address.UserAddressType;
 import cn.iocoder.mall.userservice.rpc.address.UserAddressRpc;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressRespDTO;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressCreateReqVO;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressRespVO;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressUpdateReqVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressCreateReqVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressRespVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressUpdateReqVO;
 import cn.iocoder.mall.userweb.convert.address.UserAddressConvert;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +23,6 @@ import static cn.iocoder.common.framework.exception.enums.GlobalErrorCodeConstan
 @Service
 public class UserAddressManager {
 
-//    @DubboReference(version = "${dubbo.consumer.UserAddressRpc.version}")
     @Autowired
     private UserAddressRpc userAddressRpc;
 

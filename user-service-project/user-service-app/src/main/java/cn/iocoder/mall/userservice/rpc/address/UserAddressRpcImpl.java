@@ -6,19 +6,16 @@ import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressCreateReqDTO;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressRespDTO;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressUpdateReqDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
 /**
-* 用户收件地址 Rpc 实现类
-*/
-//@DubboService(version = "${dubbo.provider.UserAddressRpc.version}")
-//@Service
-@FeignClient
+ * 用户收件地址 Rpc 实现类
+ */
+@RestController
 public class UserAddressRpcImpl implements UserAddressRpc {
 
     @Autowired

@@ -1,4 +1,4 @@
-package cn.iocoder.mall.userweb.controller.passport.vo;
+package cn.iocoder.mall.userweb.controller.pub.passport.vo;
 
 import cn.iocoder.common.framework.validator.Mobile;
 import io.swagger.annotations.ApiModel;

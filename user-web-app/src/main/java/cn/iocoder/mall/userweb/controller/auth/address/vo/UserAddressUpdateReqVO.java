@@ -1,4 +1,4 @@
-package cn.iocoder.mall.userweb.controller.address.vo;
+package cn.iocoder.mall.userweb.controller.auth.address.vo;
 
 import cn.iocoder.common.framework.validator.InEnum;
 import cn.iocoder.mall.userservice.enums.address.UserAddressType;

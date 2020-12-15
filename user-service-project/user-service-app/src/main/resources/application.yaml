@@ -5,6 +5,8 @@ spring:
   # Profile 的配置项
   profiles:
     active: local
+  main:
+    allow-bean-definition-overriding: true
 
 # MyBatis Plus 配置项
 mybatis-plus:

@@ -6,6 +6,7 @@ todo:
 > * 3、将管理后台从 React 重构到 Vue 框架。
 > * 4. 增加 log 模块
 > * 5. 推荐模块 (https://blog.csdn.net/csdnnews/article/details/108970879)
+> * 6、商城项目微服务技术改为spring cloud
 
 
 dubbo自定义拦截器(按照优先级顺序)
@@ -101,7 +102,7 @@ TODO 此处应有一个架构图的装逼 JPG 图。
 
 后端项目，目前的项目结构如下：
 
-```Java
+```
 [-] xxx
   ├──[-] xxx-application // 提供对外 HTTP API 。
   ├──[-] xxx-service-api // 提供 Dubbo 服务 API 。

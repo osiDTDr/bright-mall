@@ -8,10 +8,19 @@ public class SwaggerProperties {
     private String title;
     private String description;
     private String version;
-    private String basePackage;
+    private String basePackageForToken;
+    private String basePackageForNoToken;
 
     public String getTitle() {
         return title;
+    }
+
+    public String getBasePackageForNoToken() {
+        return basePackageForNoToken;
+    }
+
+    public void setBasePackageForNoToken(String basePackageForNoToken) {
+        this.basePackageForNoToken = basePackageForNoToken;
     }
 
     public SwaggerProperties setTitle(String title) {
@@ -37,12 +46,12 @@ public class SwaggerProperties {
         return this;
     }
 
-    public String getBasePackage() {
-        return basePackage;
+    public String getBasePackageForToken() {
+        return basePackageForToken;
     }
 
-    public SwaggerProperties setBasePackage(String basePackage) {
-        this.basePackage = basePackage;
+    public SwaggerProperties setBasePackageForToken(String basePackageForToken) {
+        this.basePackageForToken = basePackageForToken;
         return this;
     }
 }

@@ -8,13 +8,15 @@ import cn.iocoder.mall.systemservice.rpc.systemlog.vo.SystemAccessLogPageDTO;
 import cn.iocoder.mall.systemservice.rpc.systemlog.vo.SystemAccessLogVO;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
 /**
 * 系统访问日志 Rpc 实现类
 */
-@Service(version = "${dubbo.provider.SystemAccessLogRpc.version}")
+//@Service(version = "${dubbo.provider.SystemAccessLogRpc.version}")
+@RestController
 public class SystemAccessLogRpcImpl implements SystemAccessLogRpc {
 
     @Autowired

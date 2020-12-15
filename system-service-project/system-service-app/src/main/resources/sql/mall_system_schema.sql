@@ -225,3 +225,6 @@ CREATE TABLE `system_exception_log` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1012 DEFAULT CHARSET=utf8mb4 COMMENT='系统异常日志';
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+alter table system_exception_log
+	add process_status int null comment '处理状态';

@@ -9,10 +9,11 @@ import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemExceptionLogProcess
 import cn.iocoder.mall.systemservice.rpc.systemlog.vo.SystemExceptionLogVO;
 import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-@Service(version = "${dubbo.provider.SystemExceptionLogRpc.version}")
+@RestController
 public class SystemExceptionLogRpcImpl implements SystemExceptionLogRpc {
 
     @Autowired

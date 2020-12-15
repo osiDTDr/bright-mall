@@ -2,16 +2,16 @@ package cn.iocoder.mall.systemservice.rpc.oauth;
 
 import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.mall.systemservice.manager.oauth.OAuth2Manager;
+import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2AccessTokenRespDTO;
 import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2CreateAccessTokenReqDTO;
 import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2RefreshAccessTokenReqDTO;
-import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2AccessTokenRespDTO;
 import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2RemoveTokenByUserReqDTO;
-import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-//@Service(version = "${dubbo.provider.OAuth2Rpc.version}")
+@RestController
 public class OAuth2RpcImpl implements OAuth2Rpc {
 
     @Autowired

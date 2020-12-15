@@ -6,10 +6,13 @@ import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemExceptionLogCreateD
 import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemExceptionLogPageDTO;
 import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemExceptionLogProcessDTO;
 import cn.iocoder.mall.systemservice.rpc.systemlog.vo.SystemExceptionLogVO;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 系统异常日志 Rpc 接口
  */
+@FeignClient("system-service")
 public interface SystemExceptionLogRpc {
 
     /**
@@ -18,7 +21,8 @@ public interface SystemExceptionLogRpc {
      * @param createDTO 创建系统异常日志 DTO
      * @return 成功
      */
-    CommonResult<Boolean> createSystemExceptionLog(SystemExceptionLogCreateDTO createDTO);
+    @PostMapping("/createSystemExceptionLog")
+    CommonResult<Boolean> createSystemExceptionLog(@RequestBody SystemExceptionLogCreateDTO createDTO);
 
     /**
      * 获得系统异常日志
@@ -26,7 +30,8 @@ public interface SystemExceptionLogRpc {
      * @param systemExceptionLogId 系统异常日志编号
      * @return 系统异常日志
      */
-    CommonResult<SystemExceptionLogVO> getSystemExceptionLog(Integer systemExceptionLogId);
+    @GetMapping("/getSystemExceptionLog/{systemExceptionLogId}")
+    CommonResult<SystemExceptionLogVO> getSystemExceptionLog(@PathVariable Integer systemExceptionLogId);
 
     /**
      * 获得系统异常日志分页
@@ -34,7 +39,8 @@ public interface SystemExceptionLogRpc {
      * @param pageDTO 系统异常日志分页查询
      * @return 系统异常日志分页结果
      */
-    CommonResult<PageResult<SystemExceptionLogVO>> pageSystemExceptionLog(SystemExceptionLogPageDTO pageDTO);
+    @PostMapping("/pageSystemExceptionLog")
+    CommonResult<PageResult<SystemExceptionLogVO>> pageSystemExceptionLog(@RequestBody SystemExceptionLogPageDTO pageDTO);
 
     /**
      * 处理系统异常日志，完成或者忽略
@@ -42,6 +48,7 @@ public interface SystemExceptionLogRpc {
      * @param processDTO 处理 DTO
      * @return 成功
      */
-    CommonResult<Boolean> processSystemExceptionLog(SystemExceptionLogProcessDTO processDTO);
+    @PostMapping("/processSystemExceptionLog")
+    CommonResult<Boolean> processSystemExceptionLog(@RequestBody SystemExceptionLogProcessDTO processDTO);
 
 }

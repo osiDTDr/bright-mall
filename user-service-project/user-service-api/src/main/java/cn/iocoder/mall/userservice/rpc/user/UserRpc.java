@@ -7,13 +7,11 @@ import cn.iocoder.mall.userservice.rpc.user.dto.UserPageReqDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserRespDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserUpdateReqDTO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@FeignClient("user-service")
+@FeignClient(value = "user-service",contextId = "user")
 public interface UserRpc {
 
     /**
@@ -23,7 +21,7 @@ public interface UserRpc {
      * @return 用户
      */
     @GetMapping("/getUser")
-    CommonResult<UserRespDTO> getUser(Integer userId);
+    CommonResult<UserRespDTO> getUser(@RequestParam("userId") Integer userId);
 
     /**
      * 基于手机号创建用户。
@@ -33,7 +31,7 @@ public interface UserRpc {
      * @return 用户信息
      */
     @PostMapping("/createUserIfAbsent")
-    CommonResult<UserRespDTO> createUserIfAbsent(UserCreateReqDTO createDTO);
+    CommonResult<UserRespDTO> createUserIfAbsent(@RequestBody UserCreateReqDTO createDTO);
 
     /**
      * 更新用户
@@ -41,7 +39,7 @@ public interface UserRpc {
      * @param updateDTO 更新用户 DTO
      */
     @PutMapping("/updateUser")
-    CommonResult<Boolean> updateUser(UserUpdateReqDTO updateDTO);
+    CommonResult<Boolean> updateUser(@RequestBody UserUpdateReqDTO updateDTO);
 
     /**
      * 获得用户列表
@@ -59,6 +57,6 @@ public interface UserRpc {
      * @return 用户分页结果
      */
     @PostMapping("/pageUser")
-    CommonResult<PageResult<UserRespDTO>> pageUser(UserPageReqDTO pageDTO);
+    CommonResult<PageResult<UserRespDTO>> pageUser(@RequestParam UserPageReqDTO pageDTO);
 
 }

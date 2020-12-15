@@ -16,7 +16,7 @@ spring:
     throw-exception-if-no-handler-found: true # 匹配不到路径时，抛出 NoHandlerFoundException 异常
     static-path-pattern: /doc.html # 静态资源的路径
   main:
-    allow-bean-definition-overriding: false
+    allow-bean-definition-overriding: true
 # Dubbo 配置项
 dubbo:
   # Spring Cloud Alibaba Dubbo 专属配置
@@ -45,7 +45,8 @@ swagger:
   title: 用户中心
   description: 提供用户注册、登陆、信息等等 API
   version: 1.0.0
-  base-package: cn.iocoder.mall.userweb.controller
+  base-package-for-token: cn.iocoder.mall.userweb.controller.auth
+  base-package-for-no-token: cn.iocoder.mall.userweb.controller.pub
 
 # Actuator 监控配置项
 management:
@@ -55,4 +56,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8080/eureka/
-
+ribbon:
+  eager-load:
+    clients: system-service,user-service
+    enabled: true

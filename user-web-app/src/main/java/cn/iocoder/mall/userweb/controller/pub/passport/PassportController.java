@@ -1,10 +1,10 @@
-package cn.iocoder.mall.userweb.controller.passport;
+package cn.iocoder.mall.userweb.controller.pub.passport;
 
 import cn.iocoder.common.framework.util.HttpUtil;
 import cn.iocoder.common.framework.vo.CommonResult;
-import cn.iocoder.mall.userweb.controller.passport.vo.PassportLoginBySmsReqVO;
-import cn.iocoder.mall.userweb.controller.passport.vo.UserPassportSendSmsRespVO;
-import cn.iocoder.mall.userweb.controller.passport.vo.PassportAccessTokenRespVO;
+import cn.iocoder.mall.userweb.controller.pub.passport.vo.PassportLoginBySmsReqVO;
+import cn.iocoder.mall.userweb.controller.pub.passport.vo.UserPassportSendSmsRespVO;
+import cn.iocoder.mall.userweb.controller.pub.passport.vo.PassportAccessTokenRespVO;
 import cn.iocoder.mall.userweb.manager.passport.PassportManager;
 import cn.iocoder.security.annotations.RequiresNone;
 import io.swagger.annotations.Api;

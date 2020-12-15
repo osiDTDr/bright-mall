@@ -6,20 +6,20 @@ import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2RefreshAccessTokenReqDT
 import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2AccessTokenRespDTO;
 import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2RemoveTokenByUserReqDTO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(value = "system-service")
 public interface OAuth2Rpc {
-    @RequestMapping(value = "/createAccessToken")
-    CommonResult<OAuth2AccessTokenRespDTO> createAccessToken(OAuth2CreateAccessTokenReqDTO createAccessTokenDTO);
+    @PostMapping(value = "/createAccessToken")
+    CommonResult<OAuth2AccessTokenRespDTO> createAccessToken(@RequestBody OAuth2CreateAccessTokenReqDTO createAccessTokenDTO);
 
-    @RequestMapping(value = "/checkAccessToken")
-    CommonResult<OAuth2AccessTokenRespDTO> checkAccessToken(String accessToken);
+    @GetMapping(value = "/checkAccessToken")
+    CommonResult<OAuth2AccessTokenRespDTO> checkAccessToken(@RequestParam("accessToken") String accessToken);
 
-    @RequestMapping(value = "/refreshAccessToken")
-    CommonResult<OAuth2AccessTokenRespDTO> refreshAccessToken(OAuth2RefreshAccessTokenReqDTO refreshAccessTokenDTO);
+    @PostMapping(value = "/refreshAccessToken")
+    CommonResult<OAuth2AccessTokenRespDTO> refreshAccessToken(@RequestBody OAuth2RefreshAccessTokenReqDTO refreshAccessTokenDTO);
 
-    @RequestMapping(value = "/removeToken")
-    CommonResult<Boolean> removeToken(OAuth2RemoveTokenByUserReqDTO removeTokenDTO);
+    @PutMapping(value = "/removeToken")
+    CommonResult<Boolean> removeToken(@RequestBody OAuth2RemoveTokenByUserReqDTO removeTokenDTO);
 
 }

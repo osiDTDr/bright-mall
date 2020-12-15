@@ -3,9 +3,9 @@ package cn.iocoder.mall.userweb.convert.address;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressCreateReqDTO;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressRespDTO;
 import cn.iocoder.mall.userservice.rpc.address.dto.UserAddressUpdateReqDTO;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressCreateReqVO;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressRespVO;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressUpdateReqVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressCreateReqVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressRespVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressUpdateReqVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

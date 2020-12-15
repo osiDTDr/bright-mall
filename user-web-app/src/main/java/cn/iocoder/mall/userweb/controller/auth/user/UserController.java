@@ -1,8 +1,8 @@
-package cn.iocoder.mall.userweb.controller.user;
+package cn.iocoder.mall.userweb.controller.auth.user;
 
 import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.mall.security.user.core.context.UserSecurityContextHolder;
-import cn.iocoder.mall.userweb.controller.user.vo.UserRespVO;
+import cn.iocoder.mall.userweb.controller.auth.user.vo.UserRespVO;
 import cn.iocoder.mall.userweb.manager.user.UserManager;
 import cn.iocoder.security.annotations.RequiresAuthenticate;
 import io.swagger.annotations.Api;

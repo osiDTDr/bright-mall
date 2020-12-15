@@ -4,15 +4,15 @@ import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.mall.userservice.rpc.user.UserRpc;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserRespDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserUpdateReqDTO;
-import cn.iocoder.mall.userweb.controller.user.vo.UserRespVO;
+import cn.iocoder.mall.userweb.controller.auth.user.vo.UserRespVO;
 import cn.iocoder.mall.userweb.convert.user.UserConvert;
-import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserManager {
 
-    @DubboReference(version = "${dubbo.consumer.UserRpc.version}")
+    @Autowired
     private UserRpc userRpc;
 
     public UserRespVO getUser(Integer id) {

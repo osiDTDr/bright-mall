@@ -5,10 +5,9 @@ import cn.iocoder.mall.userservice.manager.sms.UserSmsCodeManager;
 import cn.iocoder.mall.userservice.rpc.sms.dto.UserSendSmsCodeReqDTO;
 import cn.iocoder.mall.userservice.rpc.sms.dto.UserVerifySmsCodeReqDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
-//@DubboService(version = "${dubbo.provider.UserSmsCodeRpc.version}")
-@Service
+@RestController
 public class UserSmsCodeRpcImpl implements UserSmsCodeRpc {
 
     @Autowired

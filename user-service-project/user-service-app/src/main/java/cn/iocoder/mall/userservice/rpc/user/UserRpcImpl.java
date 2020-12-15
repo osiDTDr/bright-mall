@@ -8,14 +8,13 @@ import cn.iocoder.mall.userservice.rpc.user.dto.UserPageReqDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserRespDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserUpdateReqDTO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-//@Service(version = "${dubbo.provider.UserRpc.version}", validation = "false")
-@Service
+@RestController
 public class UserRpcImpl implements UserRpc {
 
     @Autowired

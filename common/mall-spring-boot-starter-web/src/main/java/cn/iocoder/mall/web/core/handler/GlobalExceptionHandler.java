@@ -12,9 +12,9 @@ import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemExceptionLogCreateD
 import cn.iocoder.mall.web.core.util.CommonWebUtil;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.util.Assert;
@@ -56,7 +56,8 @@ public class GlobalExceptionHandler {
     private String applicationName;
 
     // TODO 目前存在一个问题，如果未引入 system-rpc-api 依赖，GlobalExceptionHandler 会报类不存在。未来封装出 Repository 解决该问题
-    @DubboReference(version = "${dubbo.consumer.SystemExceptionLogRpc.version}")
+//    @DubboReference(version = "${dubbo.consumer.SystemExceptionLogRpc.version}")
+    @Autowired
     private SystemExceptionLogRpc systemExceptionLogRpc;
 
     /**

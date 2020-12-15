@@ -1,10 +1,10 @@
-package cn.iocoder.mall.userweb.controller.address;
+package cn.iocoder.mall.userweb.controller.auth.address;
 
 import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.mall.security.user.core.context.UserSecurityContextHolder;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressCreateReqVO;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressRespVO;
-import cn.iocoder.mall.userweb.controller.address.vo.UserAddressUpdateReqVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressCreateReqVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressRespVO;
+import cn.iocoder.mall.userweb.controller.auth.address.vo.UserAddressUpdateReqVO;
 import cn.iocoder.mall.userweb.manager.address.UserAddressManager;
 import cn.iocoder.security.annotations.RequiresPermissions;
 import io.swagger.annotations.Api;

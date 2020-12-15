@@ -11,8 +11,7 @@ import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2AccessTokenRespDTO;
 import cn.iocoder.mall.web.core.util.CommonWebUtil;
 import cn.iocoder.security.annotations.RequiresAuthenticate;
 import cn.iocoder.security.annotations.RequiresPermissions;
-import org.apache.dubbo.config.annotation.DubboReference;
-import org.apache.dubbo.config.annotation.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -27,7 +26,7 @@ import static cn.iocoder.mall.systemservice.enums.SystemErrorCodeConstants.OAUTH
  */
 public class UserSecurityInterceptor extends HandlerInterceptorAdapter {
 
-    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}")
+    @Autowired
     private OAuth2Rpc oauth2Rpc;
 
     @Override

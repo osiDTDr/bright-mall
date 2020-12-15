@@ -8,9 +8,9 @@ import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemAccessLogCreateDTO;
 import cn.iocoder.mall.web.core.util.CommonWebUtil;
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -26,7 +26,7 @@ public class AccessLogInterceptor extends HandlerInterceptorAdapter {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @DubboReference(version = "${dubbo.consumer.SystemAccessLogRpc.version}")
+    @Autowired
     private SystemAccessLogRpc systemAccessLogRpc;
 
     @Value("${spring.application.name}")
