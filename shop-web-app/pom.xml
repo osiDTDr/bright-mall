@@ -26,6 +26,19 @@
     </dependencyManagement>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <!-- openFeign-client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
         <!-- Web 相关 -->
         <dependency>
             <groupId>cn.iocoder.mall</groupId>
@@ -37,16 +50,10 @@
             <artifactId>mall-spring-boot-starter-swagger</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>cn.iocoder.mall</groupId>
-            <artifactId>mall-spring-boot-starter-security-user</artifactId>
-        </dependency>
-
-        <!-- RPC 相关 -->
-        <dependency>
-            <groupId>cn.iocoder.mall</groupId>
-            <artifactId>mall-spring-boot-starter-dubbo</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>cn.iocoder.mall</groupId>-->
+<!--            <artifactId>mall-spring-boot-starter-security-user</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <!-- 用户服务 -->

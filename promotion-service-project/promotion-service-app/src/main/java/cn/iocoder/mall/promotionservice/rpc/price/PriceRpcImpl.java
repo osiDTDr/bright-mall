@@ -5,12 +5,12 @@ import cn.iocoder.mall.promotion.api.rpc.price.PriceRpc;
 import cn.iocoder.mall.promotion.api.rpc.price.dto.PriceProductCalcReqDTO;
 import cn.iocoder.mall.promotion.api.rpc.price.dto.PriceProductCalcRespDTO;
 import cn.iocoder.mall.promotionservice.manager.price.PriceManager;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-@DubboService
+@RestController
 public class PriceRpcImpl implements PriceRpc {
 
     @Autowired

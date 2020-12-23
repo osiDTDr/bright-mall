@@ -12,6 +12,10 @@
     <artifactId>promotion-service-api</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
         <!-- Mall 相关 -->
         <dependency>
             <groupId>cn.iocoder.mall</groupId>

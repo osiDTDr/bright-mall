@@ -4,8 +4,8 @@ import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.common.framework.vo.PageResult;
 import cn.iocoder.mall.productservice.manager.attr.ProductAttrManager;
 import cn.iocoder.mall.productservice.rpc.attr.dto.*;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import static cn.iocoder.common.framework.vo.CommonResult.success;
 /**
  * 商品规格 Rpc 实现类
  */
-@DubboService
+@RestController
 public class ProductAttrRpcImpl implements ProductAttrRpc {
 
     @Autowired

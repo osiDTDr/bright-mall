@@ -3,14 +3,14 @@ package cn.iocoder.mall.orderservice.rpc.cart;
 import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.mall.orderservice.manager.cart.CartManager;
 import cn.iocoder.mall.orderservice.rpc.cart.dto.*;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-@DubboService
+@RestController
 public class CartRpcImpl implements CartRpc {
 
     @Autowired

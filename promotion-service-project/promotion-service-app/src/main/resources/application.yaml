@@ -62,3 +62,9 @@ mall:
   error-code:
     group: ${spring.application.name}
     constants-class: cn.iocoder.mall.promotionservice.enums.PromotionErrorCodeConstants
+
+# eureka config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

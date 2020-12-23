@@ -5,12 +5,12 @@ import cn.iocoder.common.framework.vo.PageResult;
 import cn.iocoder.mall.promotion.api.rpc.coupon.CouponTemplateRpc;
 import cn.iocoder.mall.promotion.api.rpc.coupon.dto.template.*;
 import cn.iocoder.mall.promotionservice.manager.coupon.CouponTemplateManager;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-@DubboService
+@RestController
 public class CouponTemplateRpcImpl implements CouponTemplateRpc {
 
     @Autowired

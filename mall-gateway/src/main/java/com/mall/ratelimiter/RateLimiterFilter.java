@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
  * @date 2020/11/25 11:02
  */
 @Slf4j
-@Activate(group = {CommonConstants.PROVIDER,CommonConstants.CONSUMER})
+@Activate(group = {CommonConstants.PROVIDER, CommonConstants.CONSUMER})
 public class RateLimiterFilter implements Filter {
 
     private final RateLimiter rateLimiter = RateLimiter.create(10);
@@ -24,7 +24,7 @@ public class RateLimiterFilter implements Filter {
     @Override
     public Result invoke(Invoker<?> invoker, Invocation invocation) throws RpcException {
         rateLimiter.acquire();
-        log.error("执行结束时间：" + dateFormat.format(System.currentTimeMillis()));
+        log.info("rate limiter end time ：" + dateFormat.format(System.currentTimeMillis()));
         return invoker.invoke(invocation);
     }
 }

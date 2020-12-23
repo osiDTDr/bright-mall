@@ -7,14 +7,14 @@ import cn.iocoder.mall.promotion.api.rpc.activity.dto.PromotionActivityListReqDT
 import cn.iocoder.mall.promotion.api.rpc.activity.dto.PromotionActivityPageReqDTO;
 import cn.iocoder.mall.promotion.api.rpc.activity.dto.PromotionActivityRespDTO;
 import cn.iocoder.mall.promotionservice.manager.activity.PromotionActivityManager;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
-@DubboService
+@RestController
 public class PromotionActivityRpcImpl implements PromotionActivityRpc {
 
     @Autowired

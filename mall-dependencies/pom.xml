@@ -27,6 +27,8 @@
         <!-- 统一依赖管理 -->
         <spring.boot.version>2.2.5.RELEASE</spring.boot.version>
         <spring.cloud.version>Hoxton.SR8</spring.cloud.version>
+        <spring.cloud.openfeign.version>2.2.5.RELEASE</spring.cloud.openfeign.version>
+        <spring.cloud.gateway.version>2.2.5.RELEASE</spring.cloud.gateway.version>
         <spring.cloud.alibaba.version>2.2.1.RELEASE</spring.cloud.alibaba.version>
         <!-- Web 相关 -->
         <servlet.version>2.5</servlet.version>
@@ -93,7 +95,14 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-openfeign</artifactId>
-                <version>2.2.5.RELEASE</version>
+                <version>${spring.cloud.openfeign.version}</version>
+            </dependency>
+
+            <!-- spring-cloud-gateway -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-gateway</artifactId>
+                <version>${spring.cloud.gateway.version}</version>
             </dependency>
 
 <!--            <dependency>-->

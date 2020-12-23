@@ -59,4 +59,10 @@ swagger:
   title: 商城中心
   description: 提供用户商城购物流程中的 API
   version: 1.0.0
-  base-package: cn.iocoder.mall.shopweb.controller
+  base-package-for-token: cn.iocoder.mall.shopweb.controller
+
+# eureka config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

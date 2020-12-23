@@ -8,7 +8,9 @@ import cn.iocoder.mall.productservice.rpc.sku.dto.ProductSkuListQueryReqDTO;
 import cn.iocoder.mall.productservice.rpc.sku.dto.ProductSkuRespDTO;
 import cn.iocoder.mall.productservice.rpc.spu.ProductSpuRpc;
 import cn.iocoder.mall.productservice.rpc.spu.dto.ProductSpuRespDTO;
-import cn.iocoder.mall.promotion.api.enums.*;
+import cn.iocoder.mall.promotion.api.enums.MeetTypeEnum;
+import cn.iocoder.mall.promotion.api.enums.PreferentialTypeEnum;
+import cn.iocoder.mall.promotion.api.enums.RangeTypeEnum;
 import cn.iocoder.mall.promotion.api.enums.activity.PromotionActivityStatusEnum;
 import cn.iocoder.mall.promotion.api.enums.activity.PromotionActivityTypeEnum;
 import cn.iocoder.mall.promotion.api.rpc.activity.dto.PromotionActivityRespDTO;
@@ -19,12 +21,12 @@ import cn.iocoder.mall.promotion.api.rpc.price.dto.PriceProductCalcRespDTO;
 import cn.iocoder.mall.promotionservice.service.activity.PromotionActivityService;
 import cn.iocoder.mall.promotionservice.service.coupon.CouponCardService;
 import cn.iocoder.mall.promotionservice.service.coupon.CouponTemplateService;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -34,9 +36,9 @@ import static cn.iocoder.mall.promotion.api.enums.PromotionErrorCodeConstants.*;
 @Validated
 public class PriceManager {
 
-    @DubboReference(version = "${dubbo.consumer.ProductSkuRpc.version}")
+    @Resource
     private ProductSkuRpc productSkuRpc;
-    @DubboReference(version = "${dubbo.consumer.ProductSpuRpc.version}")
+    @Resource
     private ProductSpuRpc productSpuRpc;
 
     @Autowired
@@ -86,7 +88,7 @@ public class PriceManager {
             discountTotal += itemGroup.getItems().stream().mapToInt(item -> item.getSelected() ? item.getDiscountTotal() : 0).sum();
             presentTotal += itemGroup.getItems().stream().mapToInt(item -> item.getSelected() ? item.getPresentTotal() : 0).sum();
         }
-        Assert.isTrue(buyTotal - discountTotal ==  presentTotal,
+        Assert.isTrue(buyTotal - discountTotal == presentTotal,
                 String.format("价格合计( %d - %d == %d )不正确", buyTotal, discountTotal, presentTotal));
         calcRespDTO.setFee(new PriceProductCalcRespDTO.Fee(buyTotal, discountTotal, 0, presentTotal));
         return calcRespDTO;

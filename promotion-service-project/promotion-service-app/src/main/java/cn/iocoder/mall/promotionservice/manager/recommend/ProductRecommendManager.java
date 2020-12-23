@@ -7,11 +7,11 @@ import cn.iocoder.mall.productservice.rpc.spu.ProductSpuRpc;
 import cn.iocoder.mall.productservice.rpc.spu.dto.ProductSpuRespDTO;
 import cn.iocoder.mall.promotion.api.rpc.recommend.dto.*;
 import cn.iocoder.mall.promotionservice.service.recommend.ProductRecommendService;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 import static cn.iocoder.mall.promotion.api.enums.PromotionErrorCodeConstants.PRODUCT_RECOMMEND_PRODUCT_NOT_EXISTS;
@@ -23,7 +23,7 @@ import static cn.iocoder.mall.promotion.api.enums.PromotionErrorCodeConstants.PR
 @Validated
 public class ProductRecommendManager {
 
-    @DubboReference(validation = "true", version = "${dubbo.consumer.ProductSpuRpc.version}")
+    @Resource
     private ProductSpuRpc productSpuRpc;
 
     @Autowired
@@ -41,7 +41,7 @@ public class ProductRecommendManager {
         // 校验商品不存在
         checkProductSpu(createReqDTO.getProductSpuId());
         // 创建商品推荐
-        return  productRecommendService.createProductRecommend(createReqDTO);
+        return productRecommendService.createProductRecommend(createReqDTO);
     }
 
     public void updateProductRecommend(ProductRecommendUpdateReqDTO updateReqDTO) {

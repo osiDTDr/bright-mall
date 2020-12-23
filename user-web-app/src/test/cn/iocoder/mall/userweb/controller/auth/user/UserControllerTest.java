@@ -40,7 +40,7 @@ public class UserControllerTest {
     public void getUserInfo() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders.get("/user/info")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
-                .header("Authorization", "Bearer d5e05d95282e4e1393842215ef7fcc70")
+                .header("Authorization", "Bearer fbddd998bd6b4864bb305adaebc5ce58")
                 .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.code").value(0))

@@ -1,9 +1,6 @@
 # 服务器的配置项
 server:
-  port: 18087
-  servlet:
-    context-path: /mall-gateway
-
+  port: 8081
 spring:
   # Application 的配置项
   application:
@@ -12,3 +9,31 @@ spring:
   mvc:
     throw-exception-if-no-handler-found: true # 匹配不到路径时，抛出 NoHandlerFoundException 异常
     static-path-pattern: /doc.html # 静态资源的路径
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: user-web-api
+          uri: lb://user-web
+          predicates:
+            - Path=/user-api/**
+        - id: shop-web-api
+          uri: lb://shop-web
+          predicates:
+            - Path=/shop-api/**
+        - id: system-service
+          uri: lb://system-service
+          predicates:
+            - Path=/system-service/**
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: error

@@ -34,11 +34,6 @@
             <artifactId>user-service-api</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>cn.iocoder.mall</groupId>-->
-<!--            <artifactId>mall-gateway</artifactId>-->
-<!--        </dependency>-->
-
         <!-- Web 相关 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

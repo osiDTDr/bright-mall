@@ -9,10 +9,10 @@ import cn.iocoder.mall.orderservice.service.cart.CartService;
 import cn.iocoder.mall.orderservice.service.cart.bo.CartItemBO;
 import cn.iocoder.mall.productservice.rpc.sku.ProductSkuRpc;
 import cn.iocoder.mall.productservice.rpc.sku.dto.ProductSkuRespDTO;
-import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 import static cn.iocoder.mall.orderservice.enums.OrderErrorCodeConstants.CARD_ITEM_SKU_NOT_FOUND;
@@ -23,7 +23,7 @@ import static cn.iocoder.mall.orderservice.enums.OrderErrorCodeConstants.CARD_IT
 @Service
 public class CartManager {
 
-    @DubboReference(version = "${dubbo.consumer.ProductSkuRpc.version}")
+    @Resource
     private ProductSkuRpc productSkuRpc;
 
     @Autowired

@@ -7,12 +7,15 @@ import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemExceptionLogPageDTO
 import cn.iocoder.mall.systemservice.rpc.systemlog.dto.SystemExceptionLogProcessDTO;
 import cn.iocoder.mall.systemservice.rpc.systemlog.vo.SystemExceptionLogVO;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  * 系统异常日志 Rpc 接口
  */
-@FeignClient("system-service")
+@FeignClient(value = "system-service", contextId = "systemException")
 public interface SystemExceptionLogRpc {
 
     /**

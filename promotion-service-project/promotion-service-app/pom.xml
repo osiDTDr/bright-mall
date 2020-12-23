@@ -12,12 +12,10 @@
     <artifactId>promotion-service-app</artifactId>
 
     <dependencies>
-        <!-- RPC 相关 -->
         <dependency>
-            <groupId>cn.iocoder.mall</groupId>
-            <artifactId>mall-spring-boot-starter-dubbo</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
         <dependency>
             <!-- 系统服务 -->
             <groupId>cn.iocoder.mall</groupId>

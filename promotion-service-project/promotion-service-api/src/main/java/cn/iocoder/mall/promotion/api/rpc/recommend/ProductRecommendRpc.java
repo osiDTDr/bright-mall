@@ -3,12 +3,16 @@ package cn.iocoder.mall.promotion.api.rpc.recommend;
 import cn.iocoder.common.framework.vo.CommonResult;
 import cn.iocoder.common.framework.vo.PageResult;
 import cn.iocoder.mall.promotion.api.rpc.recommend.dto.*;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
 /**
  * 商品推荐 Rpc 接口
  */
+@FeignClient(value = "promotion-service", contextId = "productRecommend")
 public interface ProductRecommendRpc {
 
     /**
@@ -17,7 +21,8 @@ public interface ProductRecommendRpc {
      * @param createDTO 创建商品推荐 DTO
      * @return 商品推荐编号
      */
-    CommonResult<Integer> createProductRecommend(ProductRecommendCreateReqDTO createDTO);
+    @PostMapping("/createProductRecommend")
+    CommonResult<Integer> createProductRecommend(@RequestBody ProductRecommendCreateReqDTO createDTO);
 
     /**
      * 更新商品推荐

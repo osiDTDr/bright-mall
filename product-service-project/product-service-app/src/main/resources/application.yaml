@@ -58,3 +58,7 @@ mall:
   error-code:
     group: ${spring.application.name}
     constants-class: cn.iocoder.mall.productservice.enums.ProductErrorCodeConstants
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

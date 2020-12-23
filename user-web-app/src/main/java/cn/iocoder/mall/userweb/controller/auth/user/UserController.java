@@ -11,6 +11,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
 @Api(tags = "用户信息 API")
@@ -24,8 +26,8 @@ public class UserController {
     @ApiOperation(value = "用户信息")
     @GetMapping("/info")
     @RequiresAuthenticate
-    public CommonResult<UserRespVO> getUserInfo() {
-        UserRespVO user = userManager.getUser(UserSecurityContextHolder.getUserId());
+    public CommonResult<UserRespVO> getUserInfo(HttpServletRequest request) {
+        UserRespVO user = userManager.getUser(Integer.parseInt(request.getHeader("userId")));
         return success(user);
     }
 

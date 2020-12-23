@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.util.StringUtils;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.ParameterBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -70,12 +71,12 @@ public class SwaggerAutoConfiguration {
     @Bean(value = "publicApi")
     public Docket publicApi() {
         SwaggerProperties properties = swaggerProperties();
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(apiInfo(properties))
-                .select()
-                .apis(RequestHandlerSelectors.basePackage(properties.getBasePackageForNoToken()))
-                .paths(PathSelectors.any())
-                .build().groupName("无需token验证");
+        Docket docket = new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo(properties));
+        if (!StringUtils.isEmpty(properties.getBasePackageForNoToken())) {
+            docket.select().apis(RequestHandlerSelectors.basePackage(properties.getBasePackageForNoToken())).paths(PathSelectors.any()).build().groupName("无需token验证");
+        }
+        return docket;
     }
 
     private ApiInfo apiInfo(SwaggerProperties properties) {

@@ -6,8 +6,8 @@ import cn.iocoder.mall.productservice.rpc.category.dto.ProductCategoryCreateReqD
 import cn.iocoder.mall.productservice.rpc.category.dto.ProductCategoryListQueryReqDTO;
 import cn.iocoder.mall.productservice.rpc.category.dto.ProductCategoryRespDTO;
 import cn.iocoder.mall.productservice.rpc.category.dto.ProductCategoryUpdateReqDTO;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 import java.util.List;
@@ -15,9 +15,9 @@ import java.util.List;
 import static cn.iocoder.common.framework.vo.CommonResult.success;
 
 /**
-* 商品分类 Rpc 实现类
-*/
-@DubboService
+ * 商品分类 Rpc 实现类
+ */
+@RestController
 public class ProductCategoryRpcImpl implements ProductCategoryRpc {
 
     @Autowired

@@ -19,6 +19,7 @@ import cn.iocoder.mall.shopweb.convert.order.CartConvert;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -28,13 +29,13 @@ import java.util.stream.Collectors;
 @Service
 public class CartManager {
 
-    @DubboReference(version = "${dubbo.consumer.ProductCategoryRpc.version}")
+    @Resource
     private CartRpc cartRpc;
-    @DubboReference(version = "${dubbo.consumer.PriceRpc.version}")
+    @Resource
     private PriceRpc priceRpc;
-    @DubboReference(version = "${dubbo.consumer.PromotionActivityRpc.version}")
+    @Resource
     private PromotionActivityRpc promotionActivityRpc;
-    @DubboReference(version = "${dubbo.consumer.ProductSkuRpc.version}")
+    @Resource
     private ProductSkuRpc productSkuRpc;
 
     /**
