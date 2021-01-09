@@ -8,7 +8,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = "cn.iocoder.mall.systemservice.rpc")
+//@EnableFeignClients(basePackages = "cn.iocoder.mall.systemservice.rpc")
+@EnableFeignClients
 public class UserServiceApplication {
 
     public static void main(String[] args) {
@@ -17,7 +18,7 @@ public class UserServiceApplication {
 
     @Bean
     @LoadBalanced
-    public RestTemplate restTemplate(){
+    public RestTemplate restTemplate() {
         return new RestTemplate();
     }
 

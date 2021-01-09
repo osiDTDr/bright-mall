@@ -22,6 +22,12 @@ public class OAuth2RpcImpl implements OAuth2Rpc {
         return success(oauth2Manager.createAccessToken(createAccessTokenDTO));
     }
 
+    /**
+     * 查询以及检测 token
+     *
+     * @param accessToken token
+     * @return token info
+     */
     @Override
     public CommonResult<OAuth2AccessTokenRespDTO> checkAccessToken(String accessToken) {
         return success(oauth2Manager.checkAccessToken(accessToken));

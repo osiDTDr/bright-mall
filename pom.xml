@@ -14,10 +14,10 @@
     <artifactId>onemall</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-<!--        <module>order</module>-->
+        <!--        <module>order</module>-->
         <module>common</module>
-<!--        <module>ops</module>-->
-<!--        <module>pay</module>-->
+        <!--        <module>ops</module>-->
+        <!--        <module>pay</module>-->
         <module>mall-dependencies</module>
         <module>user-service-project</module>
         <module>user-web-app</module>
@@ -30,6 +30,7 @@
         <module>search-service-project</module>
         <module>order-service-project</module>
         <module>mall-gateway</module>
+        <module>mall-server</module>
     </modules>
     <packaging>pom</packaging>
 

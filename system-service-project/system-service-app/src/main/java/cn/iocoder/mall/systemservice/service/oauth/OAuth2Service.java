@@ -48,6 +48,12 @@ public class OAuth2Service {
         return OAuth2Convert.INSTANCE.convert(accessTokenDO);
     }
 
+    /**
+     * 查询以及检测 token
+     *
+     * @param accessToken token
+     * @return token info
+     */
     @Transactional
     public OAuth2AccessTokenBO checkAccessToken(String accessToken) {
         OAuth2AccessTokenDO accessTokenDO = oauth2AccessTokenMapper.selectById(accessToken);
@@ -86,10 +92,18 @@ public class OAuth2Service {
         oauth2RefreshTokenMapper.deleteByUserIdAndUserType(userId, userType);
     }
 
+    /**
+     * 创建 访问令牌
+     *
+     * @param refreshTokenDO 刷新令牌
+     * @param createIp       创建 IP
+     * @return 访问令牌
+     */
     private OAuth2AccessTokenDO createOAuth2AccessToken(OAuth2RefreshTokenDO refreshTokenDO, String createIp) {
         OAuth2AccessTokenDO accessToken = new OAuth2AccessTokenDO()
                 .setId(generateAccessToken())
-                .setUserId(refreshTokenDO.getUserId()).setUserType(refreshTokenDO.getUserType())
+                .setUserId(refreshTokenDO.getUserId())
+                .setUserType(refreshTokenDO.getUserType())
                 .setRefreshToken(refreshTokenDO.getId())
                 .setExpiresTime(new Date(System.currentTimeMillis() + accessTokenExpireTimeMillis))
                 .setCreateIp(createIp);
@@ -97,22 +111,40 @@ public class OAuth2Service {
         return accessToken;
     }
 
+    /**
+     * 创建 刷新令牌
+     *
+     * @param userId   用户编号
+     * @param userType 用户类型
+     * @param createIp 创建 IP
+     * @return 刷新令牌
+     */
     private OAuth2RefreshTokenDO createOAuth2RefreshToken(Integer userId, Integer userType, String createIp) {
         OAuth2RefreshTokenDO refreshToken = new OAuth2RefreshTokenDO()
                 .setId(generateRefreshToken())
-                .setUserId(userId).setUserType(userType)
+                .setUserId(userId)
+                .setUserType(userType)
                 .setExpiresTime(new Date(System.currentTimeMillis() + refreshTokenExpireTimeMillis))
                 .setCreateIp(createIp);
         oauth2RefreshTokenMapper.insert(refreshToken);
         return refreshToken;
     }
 
+    /**
+     * 创建 访问令牌 token
+     *
+     * @return 访问令牌 token
+     */
     private String generateAccessToken() {
         return StringUtils.uuid(true);
     }
 
+    /**
+     * 创建 刷新令牌 token
+     *
+     * @return 刷新令牌 token
+     */
     private String generateRefreshToken() {
         return StringUtils.uuid(true);
     }
-
 }

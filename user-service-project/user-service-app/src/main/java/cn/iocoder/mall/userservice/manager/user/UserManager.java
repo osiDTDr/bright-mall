@@ -7,6 +7,7 @@ import cn.iocoder.common.framework.vo.PageResult;
 import cn.iocoder.mall.systemservice.rpc.oauth.OAuth2Rpc;
 import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2RemoveTokenByUserReqDTO;
 import cn.iocoder.mall.userservice.convert.user.UserConvert;
+import cn.iocoder.mall.userservice.feign.UserOAuth2Rpc;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserCreateReqDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserPageReqDTO;
 import cn.iocoder.mall.userservice.rpc.user.dto.UserRespDTO;
@@ -24,9 +25,9 @@ public class UserManager {
     @Autowired
     private UserService userService;
 
-//    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}")
+    //    @DubboReference(version = "${dubbo.consumer.OAuth2Rpc.version}")
     @Autowired
-    private OAuth2Rpc oauth2Rpc;
+    private UserOAuth2Rpc oauth2Rpc;
 
     public UserRespDTO createUserIfAbsent(UserCreateReqDTO createDTO) {
         // 用户已经存在
@@ -51,7 +52,7 @@ public class UserManager {
         if (StringUtils.hasText(updateDTO.getPassword())
                 || CommonStatusEnum.DISABLE.getValue().equals(updateDTO.getStatus())) {
             oauth2Rpc.removeToken(new OAuth2RemoveTokenByUserReqDTO().setUserId(updateDTO.getId())
-                .setUserType(UserTypeEnum.ADMIN.getValue()));
+                    .setUserType(UserTypeEnum.ADMIN.getValue()));
         }
     }
 

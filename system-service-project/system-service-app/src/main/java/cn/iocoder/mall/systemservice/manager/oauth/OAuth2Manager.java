@@ -23,12 +23,24 @@ public class OAuth2Manager {
     @Autowired
     private OAuth2Service oauth2Service;
 
+    /**
+     * 根据用户信息创建 令牌
+     *
+     * @param createAccessTokenDTO 用户信息
+     * @return 令牌
+     */
     public OAuth2AccessTokenRespDTO createAccessToken(@Valid OAuth2CreateAccessTokenReqDTO createAccessTokenDTO) {
         OAuth2AccessTokenBO accessTokenBO = oauth2Service.createAccessToken(createAccessTokenDTO.getUserId(),
                 createAccessTokenDTO.getUserType(), createAccessTokenDTO.getCreateIp());
         return OAuth2Convert.INSTANCE.convert(accessTokenBO);
     }
 
+    /**
+     * 查询以及检测 token
+     *
+     * @param accessToken token
+     * @return token info
+     */
     public OAuth2AccessTokenRespDTO checkAccessToken(String accessToken) {
         OAuth2AccessTokenBO accessTokenBO = oauth2Service.checkAccessToken(accessToken);
         return OAuth2Convert.INSTANCE.convert(accessTokenBO);
