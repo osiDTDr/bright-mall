@@ -1,6 +1,8 @@
 package cn.iocoder.mall.systemservice.rpc.oauth;
 
 import cn.iocoder.common.framework.vo.CommonResult;
+import cn.iocoder.mall.systemservice.datasource.DatabaseContextHolder;
+import cn.iocoder.mall.systemservice.datasource.DatabaseType;
 import cn.iocoder.mall.systemservice.manager.oauth.OAuth2Manager;
 import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2AccessTokenRespDTO;
 import cn.iocoder.mall.systemservice.rpc.oauth.dto.OAuth2CreateAccessTokenReqDTO;
@@ -30,6 +32,7 @@ public class OAuth2RpcImpl implements OAuth2Rpc {
      */
     @Override
     public CommonResult<OAuth2AccessTokenRespDTO> checkAccessToken(String accessToken) {
+        setDataSourceByEnvironment("1");
         return success(oauth2Manager.checkAccessToken(accessToken));
     }
 
@@ -44,4 +47,12 @@ public class OAuth2RpcImpl implements OAuth2Rpc {
         return success(true);
     }
 
+    public void setDataSourceByEnvironment(String environment) {
+        if (environment.equals(DatabaseType.FUNCTION.getValue())) {
+            DatabaseContextHolder.setDatabaseType(DatabaseType.FUNCTION);
+        }
+        if (environment.equals(DatabaseType.REGRESSION.getValue())) {
+            DatabaseContextHolder.setDatabaseType(DatabaseType.REGRESSION);
+        }
+    }
 }
