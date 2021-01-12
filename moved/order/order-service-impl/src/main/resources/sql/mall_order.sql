@@ -20,7 +20,7 @@ CREATE TABLE `order` (
 `create_time` datetime NULL COMMENT '订单创建时间',
 `update_time` datetime NULL COMMENT '更新时间',
 `deleted` smallint NULL COMMENT '删除状态',
-PRIMARY KEY (`id`) 
+PRIMARY KEY (`id`)
 );
 CREATE TABLE `order_item` (
 `id` int NOT NULL AUTO_INCREMENT COMMENT 'id自增长',
@@ -38,7 +38,7 @@ CREATE TABLE `order_item` (
 `update_time` datetime NULL COMMENT '更新时间',
 `status` smallint(2) NOT NULL COMMENT '状态：0、代发货 1、已发货 2、已收货 20、换货中 21、换货成功 40、退货中 41、已退货',
 `delete` smallint(2) NOT NULL COMMENT '删除状态',
-PRIMARY KEY (`id`) 
+PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `order_exchange` (
@@ -84,7 +84,7 @@ CREATE TABLE `order_return` (
 `update_time` datetime NULL COMMENT '更新时间',
 `delete` smallint(2) NULL COMMENT '删除状态',
 `status` int(2) NULL COMMENT '状态 申请换货、申请成功、申请失败、退货中、退货成功',
-PRIMARY KEY (`id`) 
+PRIMARY KEY (`id`)
 );
 
 

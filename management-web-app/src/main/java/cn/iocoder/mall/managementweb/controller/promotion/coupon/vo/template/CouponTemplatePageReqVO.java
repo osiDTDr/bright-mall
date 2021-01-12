@@ -10,7 +10,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = true)
 public class CouponTemplatePageReqVO extends PageParam {
-    
+
     @ApiModelProperty(value = "类型", example = "1", notes = "参考 CouponTemplateTypeEnum 枚举")
     private Integer type;
     @ApiModelProperty(value = "标题", example = "优惠劵牛逼")
