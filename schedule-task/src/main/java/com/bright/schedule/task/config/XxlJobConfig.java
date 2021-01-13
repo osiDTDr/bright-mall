@@ -32,7 +32,7 @@ public class XxlJobConfig {
     @Value("${xxl.job.accessToken}")
     private String accessToken;
 
-    @Value("${xxl.job.executor.logpath}")
+    @Value("${xxl.job.executor.log.path}")
     private String logPath;
 
     @Value("${xxl.job.executor.log.retention.days}")
