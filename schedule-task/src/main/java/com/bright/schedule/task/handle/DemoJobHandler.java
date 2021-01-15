@@ -1,12 +1,13 @@
 package com.bright.schedule.task.handle;
 
 import com.xxl.job.core.biz.model.ReturnT;
-import com.xxl.job.core.handler.IJobHandler;
-import com.xxl.job.core.handler.annotation.JobHandler;
+import com.xxl.job.core.handler.annotation.XxlJob;
 import com.xxl.job.core.log.XxlJobLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * 任务Handler示例（Bean模式）
@@ -17,15 +18,28 @@ import org.springframework.stereotype.Component;
  * 4、执行日志：需要通过 "XxlJobLogger.log" 打印执行日志；
  * 5、任务执行结果枚举：SUCCESS、FAIL、FAIL_TIMEOUT
  */
-@JobHandler(value = "testJobHandler")
 @Component
-public class DemoJobHandler extends IJobHandler {
+public class DemoJobHandler {
     private static final Logger logger = LoggerFactory.getLogger(DemoJobHandler.class);
 
-    @Override
-    public ReturnT<String> execute(String param) {
+    @XxlJob(value = "testJobHandler")
+    public ReturnT<String> execute(String s) throws Exception {
         XxlJobLogger.log("XXL-JOB, testJobHandler.");
         logger.info("XXL-JOB test");
-        return SUCCESS;
+        return ReturnT.SUCCESS;
+    }
+
+    /**
+     * 1、简单任务示例（Bean模式）
+     */
+    @XxlJob("demoJobHandler")
+    public ReturnT<String> demoJobHandler(String param) throws Exception {
+        XxlJobLogger.log("XXL-JOB, Hello World.");
+
+        for (int i = 0; i < 5; i++) {
+            XxlJobLogger.log("beat at:" + i);
+            TimeUnit.SECONDS.sleep(2);
+        }
+        return ReturnT.SUCCESS;
     }
 }
